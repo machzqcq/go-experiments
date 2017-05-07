@@ -72,7 +72,20 @@ func funcName(value1 string) string {
 ```
 - '{' has to start on the same line as the function name
 
+## If, switch
 
+- if, else if and else (else is the last)
+- switch case : break is implicit
+- Explicit fallthrough - execute the next case block
+- if in error handling (best practice in Go)
+```
+func testConn(target string) (rspTime float64 err error)
+
+if err != nil {
+		<error handling code>
+}
+<code>
+```
 
 
 
