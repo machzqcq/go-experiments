@@ -128,6 +128,16 @@ for key, value := range myMap {
 }
 ```
 
+- Maps are unsafe for concurrency
+- Cheap to pass around
+- Specify size for large maps would improve performance
+
+## Structs
+
+- Define custom data types
+- Go is not designed for Object Oriented programming (NO objects, classes and inheritance)
+- 'type' is the keyword for struct
+
 
 
 
