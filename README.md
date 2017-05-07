@@ -138,7 +138,12 @@ for key, value := range myMap {
 - Go is not designed for Object Oriented programming (NO objects, classes and inheritance)
 - 'type' is the keyword for struct
 
+## WebServer and FileServer
+My GOPATH=/Users/pmacharl/code/go. This github project was located in `/Users/pmacharl/code/go/src`  
 
+- From the 'go' folder, execute `go install firstapp` for http server and `go install fileserver` for file server
+- The binaries get created in `go/bin` folder
+- For file server, static html files were located in src/public folder
 
 
 
