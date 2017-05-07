@@ -103,6 +103,14 @@ expression
 Placement of curly braces is vital
 ```
 
+## Arrays and Slices
+
+- Slices are most likely used in Go (vs. Arrays). Slices are dynamic sized arrays. Slices are slices of arrays
+- Slices are references. They are passed by reference. Slice data is always stored in an array
+- Syntax : make(<type>, <len>, <cap>)
+- append(<slice>, i) will generally double the capacity of the slice automatically, when you add an element i beyond the capacity of slice. This is used to expand the slice
+
+
 
 
 
