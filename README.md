@@ -26,6 +26,11 @@ mkdir -p ~/Code/go/src/github.com/machzqcq/go-experiments
 - Then install [package control](https://packagecontrol.io/installation)
 - For Go intellisense - installed [GoSublime]() package from Preferences -> Browse Packages -> search for GoSublime and click install
 
+Alternately, you can use Visual Studio Code  
+
+- Install VS Code from internet
+- Extensions -> Install Go plugin from lukehoban - Thats it!
+
 # Concepts
 
 ## Variables, Constants, Pointers
