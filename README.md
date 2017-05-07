@@ -20,4 +20,6 @@ mkdir -p ~/Code/go/src/github.com/machzqcq/go-experiments
 
 ## IDE
 
-- I insalled Sublime Text 3
+- Installed Sublime Text 3
+- Then install [package control](https://packagecontrol.io/installation)
+- For Go intellisense - installed [GoSublime]() package from Preferences -> Browse Packages -> search for GoSublime and click install
