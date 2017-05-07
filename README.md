@@ -3,7 +3,7 @@
 Most folks switch to go for its concurrency model (from other programming languages). It is said Go has its own threading model aka. goroutines (comparable to green threads in python)
 The reason I am trying out Go is because Docker was written in Go.  
 
-Go has ~25 keywords
+Go has ~25 keywords. Go focuses on Simplicity and Clarity
 
 ## Installation and initial setup
 

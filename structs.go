@@ -23,4 +23,5 @@ func main() {
 
 	fmt.Println(DockerDeepDive)
 	fmt.Println("\n Author is", DockerDeepDive.Author)
+	fmt.
 }
