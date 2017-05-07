@@ -109,6 +109,24 @@ Placement of curly braces is vital
 - Slices are references. They are passed by reference. Slice data is always stored in an array
 - Syntax : make(<type>, <len>, <cap>)
 - append(<slice>, i) will generally double the capacity of the slice automatically, when you add an element i beyond the capacity of slice. This is used to expand the slice
+- Referencing a slice by its variable name references the entire slice
+- for range looop iterate slices
+
+## Maps
+- Similar to slices and arrays in that they are lists
+- Maps are UNORDERED lists. They are <key,value> pairs. Maps are references
+- Both keytype and valuetype must be defined upfront since Go is strongly type
+- Declaration Syntax : var myMap := make(map[keyType]valueType) 
+```
+myMap := map[string]int {
+	"string1": 1,
+	"string2": 2
+}
+
+for key, value := range myMap {
+	fmt.Printf("\n key is", key, "value is", value)
+}
+```
 
 
 
