@@ -152,5 +152,35 @@ My GOPATH=/Users/pmacharl/code/go. This github project was located in `/Users/pm
 - For file server, static html files were located in src/public folder
 - So running `nohup bin/fileserver > nohup.out &` or `nohup bin/fileserver > /dev/null 2>&1 &` should run the program in background. The first one outputs to nohup.out file, second one shoves everything into pretty much a blackhole
 
+### Handlers
+
+- http.Handle requires to implement the ServeHTTP interface. When http.Handle is called, the method ServeHTTP is registered (Actually the nil means the Default behavior is to register ServeHTTP method)
+```
+package main
+
+import (
+	"net/http"
+)
+type myHandler struct {
+	greeting string
+}
+
+func (mh myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte(fmt.Sprintf("%v world", mh.greeting)))
+}
+
+func main() {
+	http.Handle("/", &myHandler{greeting: "Hello"})
+	http.ListenAndServe(":8000",nil)
+}
+``` 
+- Most of the times, http.HandleFunc() is good enough. See firstapp package
+- Built-in handlers: NotFoundHandler,RedirectHandler,StripPrefix,TimeoutHandler,FileServer
+- http.NotFoundHandler : Returns status 404, not found status to requestor. Administrative area in your application that requires user access. You could just forward them to this handler if they are not authorized to access , instead of writing up a whole new html page 
+- http.RedirectHandler: Takes the request that came in and redirect to another url. Temporary redirect or permanent redirect
+- http.StripPrefix: Looks kind of middleware. `func StripPrefix(prefix string, h handler) Handler`. Decorates another handler. Basically lets you handle a request from a url that has a prefix on it, but redirect to a handler that is not expecting the prefix
+- http.TimeoutHandler: Again a decorator. `func TimeoutHandler(h Handler, dt time.Duration, msg string) Handler` - First parameter is the handler that is decorating. The second argument is the amount of time that the first handler is allowed to process. IF timeout, then third argument is returned
+- http.FileServer - `func FileServer(root FileSystem) Handler`. FileSystem is an interface, which is generally the interface to the OS filesystem. So for e.g. `type Dir string` implements the FileSystem interface. Most commonly we use for files on disk, hence Dir is used. The string value you pass becomes the root or current folder
+
 
 
