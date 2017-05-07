@@ -87,6 +87,22 @@ if err != nil {
 <code>
 ```
 
+## Loop
+
+- Only one command/keyword for looping aka. for (this is the same keyword for infinite looop, while, looping over range/slice/map)
+- Syntax
+```
+for <expression> {
+	
+}
+for keyword
+expression
+	Blank expression = infinite loop
+	Can be Boolean expression
+	Can be range
+Placement of curly braces is vital
+```
+
 
 
 
