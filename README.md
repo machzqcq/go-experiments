@@ -20,6 +20,30 @@ mkdir -p ~/Code/go/src/github.com/machzqcq/go-experiments
 - I set up my GOPATH=/Users/pmacharl/code/go and GOROOT=/usr/local/go (this was already set while installation)
 - From shell/command line type `go env` - You should be able to see the environment variables
 
+## Workspaces
+As you continue working - you will quickly realize that you need multiple workspaces/projects i.e. you would not want to put your source code always in the Global GOPATH ($HOME/Code/go) as I declared above. There are two ways to deal with it
+
+- Option1: By default you can simply have multiple paths defined in your GOPATH and Go looks for src in all folders in that order (So lets say you can have your global , private, work etc.). 
+- Option2: Everytime your cd into the root of your projet (think of github project for e.g.), then initialize GOPATH. So essentially override the 'cd' command for bash shell and drop in a .gopath empty file in the root of every folder/project. That way the cd will append your current root of folder to GOTPATH. I had this in my ~/.bash_profile and a .gopath in the root of every go project where my 'src' resides
+
+```
+cd () {
+    builtin cd "$@"
+    cdir=$PWD
+    while [ "$cdir" != "/" ]; do
+        if [ -e "$cdir/.gopath" ]; then
+            export GOPATH=$cdir # GOPATH=$GOPATH:$cdir if you want to preserve existing
+            break
+        fi
+        cdir=$(dirname "$cdir")
+    done
+}
+```  
+
+Note: If you are using vscode, then your integrated terminal executes .bashrc, hence include the above in .bashrc as well
+
+- Related info: This might be the most closest to many developers who know RVM, pyvm, virtualenv etc. Here is the [gvm](https://github.com/moovweb/gvm) (go version manager). This lets you define multiple GOROOT (i.e. multiple Go runtimes) and manage multiple GOPATHs with gvm pkgset. Read the full documentation
+
 ## IDE
 
 - Installed Sublime Text 3
@@ -144,10 +168,10 @@ for key, value := range myMap {
 - 'type' is the keyword for struct
 
 ## WebServer and FileServer
-My GOPATH=/Users/pmacharl/code/go. This github project was located in `/Users/pmacharl/code/go/src`  
+For managing multiple workspaces aka. GOPATH, see at the top of this page 
 
-- From the 'go' folder, execute `go install firstapp` for http server and `go install fileserver` for file server
-- Note that `go install` or `go build` work at package level ONLY, however `go run` can work at file level. So `go install firstapp/main.go` is NOT allowed
+- From the root of this project, execute `go install github.com/machzqcq/firstapp` for http server and `go install fileserver` for file server. This will create a `bin/firstapp` folder
+- Note that `go install` or `go build` work at package level ONLY, however `go run` can work at file level. So `go install github.com/machzqcq/firstapp/main.go` is NOT allowed
 - The binaries get created in `go/bin` folder
 - For file server, static html files were located in src/public folder
 - So running `nohup bin/fileserver > nohup.out &` or `nohup bin/fileserver > /dev/null 2>&1 &` should run the program in background. The first one outputs to nohup.out file, second one shoves everything into pretty much a blackhole
