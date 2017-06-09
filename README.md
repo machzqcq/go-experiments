@@ -40,7 +40,7 @@ cd () {
 }
 ```  
 
-Note: If you are running `go build`, then run it from the project root and not from 'src' folder. So it might seem a little counterintuitive, but go build automatically looks in the $GOPATH/src folder i.e. you don't have to specifically step inside 'src' folder. This might be more evident in nested package structures. For e.g. if you had $GOPATH=~/git-projects/go-web/src/github.com/machzqcq/fileserver/fileserver.go, then when you cd into ~/git-projects/go-web (assuming you have a .gopath here) , then to build the binary, just run `go build github.com/machzqcq/fileserver` , this will put the fileserver binary in ~/git-projects/go-web/bin folder  
+Note: If you are running `go build`, then run it from the project root and not from 'src' folder. So it might seem a little counterintuitive, but go build automatically looks in the $GOPATH/src folder i.e. you don't have to specifically step inside 'src' folder. This might be more evident in nested package structures. For e.g. if you had $GOPATH=~/git-projects/go-web/src/github.com/machzqcq/fileserver/fileserver.go, then when you cd into ~/git-projects/go-web (assuming you have a .gopath here) , then to build the binary, just run `go build github.com/machzqcq/fileserver` , this will put the fileserver binary in `~/git-projects/go-web/` folder. On the other hand `go install github.com/machzqcq/fileserver` drop the binary in  `~/git-projects/go-web/` folder
 
 Note: If you are using vscode, then your integrated terminal executes .bashrc, hence include the above in .bashrc as well
 
