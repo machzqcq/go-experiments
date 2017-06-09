@@ -42,7 +42,9 @@ cd () {
 
 Note: If you are using vscode, then your integrated terminal executes .bashrc, hence include the above in .bashrc as well
 
-- Related info: This might be the most closest to many developers who know RVM, pyvm, virtualenv etc. Here is the [gvm](https://github.com/moovweb/gvm) (go version manager). This lets you define multiple GOROOT (i.e. multiple Go runtimes) and manage multiple GOPATHs with gvm pkgset. Read the full documentation
+- Related info: This might be the most closest to many developers who know RVM, pyvm, virtualenv etc. Here is the [gvm](https://github.com/moovweb/gvm) (go version manager). This lets you define multiple GOROOT (i.e. multiple Go runtimes) and manage multiple GOPATHs with gvm pkgset. Read the full documentation.  
+
+There are many more package managers. Read [here](https://github.com/golang/go/wiki/PackageManagementTools), though [dep](https://github.com/golang/dep) is the official tool so far. Lots changing in this space as we speak
 
 ## IDE
 
