@@ -46,7 +46,11 @@ Note: If you are using vscode, then your integrated terminal executes .bashrc, h
 
 - Related info: This might be the most closest to many developers who know RVM, pyvm, virtualenv etc. Here is the [gvm](https://github.com/moovweb/gvm) (go version manager). This lets you define multiple GOROOT (i.e. multiple Go runtimes) and manage multiple GOPATHs with gvm pkgset. Read the full documentation.  
 
-There are many more package managers. Read [here](https://github.com/golang/go/wiki/PackageManagementTools), though [dep](https://github.com/golang/dep) is the official tool so far. Lots changing in this space as we speak. The populality index of go package managers is [here](https://github.com/blindpirate/report-of-build-tools-for-java-and-golang)
+There are many more package managers. Read [here](https://github.com/golang/go/wiki/PackageManagementTools), though [dep](https://github.com/golang/dep) is the official tool so far. Lots changing in this space as we speak. The populality index of go package managers is [here](https://github.com/blindpirate/report-of-build-tools-for-java-and-golang)  
+
+*Errors*
+Having your workspace in any other directory other than ~/code/go with dep command `dep init` (run from $GOPATH) is resulting in error ""/Users/pmacharl/git-projects/go-experiments" not in any GOPATH: "/Users/pmacharl/git-projects/go-ex
+periments" not in any GOPATH. This is still an open issue (as of 7/09/2017) as per [148](https://github.com/golang/dep/issues/148) and [372](https://github.com/golang/dep/issues/372)
 
 ## IDE
 
