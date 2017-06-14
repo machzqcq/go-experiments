@@ -14,4 +14,12 @@ func main() {
 			break
 		}
 	}
+
+	myMap := make(map[string]string)
+	myMap["first"] = "blah"
+	myMap["second"] = "xyz"
+
+	for _, v := range myMap {
+		println(v)
+	}
 }
